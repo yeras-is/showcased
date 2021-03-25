@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/basic.dart';
 import 'package:showcased/showcase.dart';
 import 'package:showcased/showcase_widget.dart';
 
@@ -70,28 +71,23 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Wrap(
-          children: List.generate(
-            22,
-            (index) {
-              var card = Card(
-                child: SizedBox(
-                  width: 100,
-                  height: 100,
-                  child: Text('LOL'),
-                ),
-              );
-              return index == 21
-                  ? Showcase(
-                      key: _one,
-                      title: 'Menu',
-                      description: ' Click here to see menu options' * 3,
-                      child: card,
-                    )
-                  : card;
-            },
-          ),
+      body: GridView.count(
+        crossAxisCount: 5,
+        children: List.generate(
+          50,
+          (index) {
+            var card = Card(
+              child: Center(child: Text('LOL')),
+            );
+            return index == 6
+                ? Showcase(
+                    key: _one,
+                    title: 'Menu',
+                    description: 'Click here to see menu options' * 3,
+                    child: card,
+                  )
+                : card;
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
