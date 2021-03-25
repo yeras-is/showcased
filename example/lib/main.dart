@@ -79,7 +79,7 @@ class _MainPageState extends State<MainPage> {
             var card = Card(
               child: Center(child: Text('LOL')),
             );
-            return index == 6
+            return index == 49
                 ? Showcase(
                     key: _one,
                     title: 'Menu',
